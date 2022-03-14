@@ -1,47 +1,31 @@
-const asena = require('../events');
+const Asena = require('../events');
+const {MessageType, MessageOptions, Mimetype} = require('@adiwajshing/baileys');
+const axios = require('axios');
 
-const {MessageType} = require('@adiwajshing/baileys');
+const Language = require('../language');
+const Lang = Language.getString('wallpaper');
 
-const GM = "it sends bot deploying link"
+Asena.addCommand({pattern: 'git', fromMe: false, desc: "Gives github link of the bot"}, (async (message, match) => {
 
-const GN = "it sends bot deploying link"
+    var skl = await axios.get("https://i.ibb.co/1r06Lg7/Joshuvaser.jpg", { responseType: 'arraybuffer' })
 
-const Config = require('../config');
+    await message.sendMessage(Buffer(skl.data), MessageType.image, {mimetype: Mimetype.png, caption: `*⚜️➪𝑱𝑶𝑺𝑯𝑼𝑽𝑨 𝑺𝑬𝑹 𝑩𝑶𝑻☜︎︎︎⚜️*
+ᴄʀᴇᴀᴛᴏʀ ɴᴜᴍʙᴇʀ: wa.me/918129900380
 
-if (Config.WORKTYPE == 'private') {
 
-asena.addCommand({pattern: 'git', fromMe: true, deleteCommand: true, desc: GM,}, (async (message, match) => {
+Tʜɪs ʙᴏᴛ Oᴡɴᴇʀ Nᴀᴍᴇ : ❤️ ✌︎ᴀʟꜰᴀ ꜱᴇʀ Bᴏᴛ ➪ 𝙹ᴏꜱʜᴜᴠᴀ
 
-    var r_text = new Array ();
+Gɪᴛʜᴜʙ ʟɪɴᴋ:    https://github.com/Joshuva-ser/ALFASERv1
 
-    r_text[0] = "*https://github.com/Luciferking1/Miss-Helenaa*"; 
- 
-    var i = Math.floor(1*Math.random())
+ᴊᴏꜱʜᴜᴠᴀꜱᴇʀ ʙᴏᴛ ɢʀᴏᴜᴘ: https://chat.whatsapp.com/DG87G5A3cEz4hLTH5LKbPL
 
-    await message.client.sendMessage(
+Aᴜᴅɪᴏ ᴄᴏᴍᴍᴀᴅᴇ : https://github.com/Joshuva-ser/ALFASERv1/tree/master/uploads
 
-        message.jid,(r_text[i]), MessageType.text);
+Sᴛɪᴄᴋᴇʀ ᴄᴏᴍᴍᴀᴅᴇ:https://github.com/Joshuvaser/Anjuserv2/tree/master/sticker
 
-    }));
-    
+ɪɴꜱᴛᴀɢᴀʀᴀᴍ ꜰᴏʟʟᴏᴡ : https://instagram.com/j_o_s_h_u_v_a__?utm_medium=copy_link
 
-    }
+♥️ᴀʟꜰᴀ ꜱᴇʀ Bᴏᴛ Cʀᴇᴀᴛᴇᴅ Bʏ 𝙹ᴏꜱʜᴜᴠᴀ💝
+`}) 
 
-    if (Config.WORKTYPE == 'public') {
-
-        asena.addCommand({pattern: 'git', fromMe: false, deleteCommand: true, desc: GM,}, (async (message, match) => {
-
-            var r_text = new Array ();
-
-                 r_text[0] = "*https://github.com/Luciferking1/miss-helena*"; 
-
-                     var i = Math.floor(1*Math.random())
-
-                         await message.client.sendMessage(
-
-                               message.jid,(r_text[i]), MessageType.text);
-
-    }));
-    
-
-   }
+}));
